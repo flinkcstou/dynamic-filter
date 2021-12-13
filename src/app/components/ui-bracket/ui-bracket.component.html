@@ -2,8 +2,11 @@
 
   <ng-container *ngIf="bracket.dynamicFilters.length">
     <div class="dynamic-filter-container">
-      <app-ui-chip [text]="bracket.dynamicFilters[0].value"></app-ui-chip>
-      <app-ui-and-or *ngIf="!isLast" (emitBracket)="joinBracket($event, bracket)"></app-ui-and-or>
+      <app-ui-chip [text]="bracket.dynamicFilters[0].value"
+                   (removeEmit)="removeDynamicFilter(bracket)"
+      ></app-ui-chip>
+      <app-ui-and-or *ngIf="!isLast"
+                     (emitBracket)="joinBracket($event, bracket)"></app-ui-and-or>
     </div>
   </ng-container>
 
@@ -17,7 +20,8 @@
         <img src="assets/red-close.png">
       </div>
     </div>
-    <app-ui-and-or *ngIf="!isLast"></app-ui-and-or>
+    <app-ui-and-or *ngIf="!isLast"
+                   (emitBracket)="joinBracket($event, bracket)"></app-ui-and-or>
   </ng-container>
 
 </div>

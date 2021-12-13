@@ -9,7 +9,7 @@ export class UiChipComponent implements OnInit {
 
   @Input() text = 'text';
 
-  @Output() closeEmit: EventEmitter<void> = new EventEmitter<void>();
+  @Output() removeEmit: EventEmitter<void> = new EventEmitter<void>();
 
   constructor() {
   }

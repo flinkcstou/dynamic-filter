@@ -21,10 +21,14 @@ export class UiBracketComponent implements OnInit {
   }
 
   removeBracket(bracket: Bracket): any {
-    this.filterService.value.brackets = this.filterService.value.brackets.filter(b => b.id !== bracket.id);
+    this.filterService.removeDynamicFilter(bracket);
   }
 
   joinBracket($event: boolean, bracket: Bracket): void {
+    this.filterService.joinBracket(bracket);
+  }
 
+  removeDynamicFilter(bracket: Bracket): void {
+    this.filterService.removeDynamicFilter(bracket);
   }
 }
