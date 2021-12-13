@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { createDefaultDynamicFilters, createDefaultFilter, Filter } from 'src/app/components/models/Filter';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Bracket } from 'src/app/components/models/Bracket';
 import { AndOrEnum } from 'src/app/components/models/AndOrEnum';
+import { Filter } from 'src/app/components/models/Filter';
+import { createDefaultDynamicFilters, createDefaultFilter } from 'src/app/components/models/CreateDefault';
 
 @Injectable({
   providedIn: 'root'
@@ -16,55 +17,23 @@ export class FilterService {
   constructor() {
   }
 
-  get value() {
+  get value(): Filter {
     return this.filterSubject.value;
   }
 
-  create(): Bracket {
+  create(parentIds: string[]): Bracket {
 
-    return createDefaultBracket();
-
-    function createDefaultBracket(): Bracket {
-      return {
-        id: 'xd8uAmBx9C3vhzcE' + (Math.random() + 1000) * 10,
-        andOr: AndOrEnum.AND,
-        dynamicFilters: createDefaultDynamicFilters(),
-        brackets: []
-      };
-    }
-
-    function createDefaultBracket1(): Bracket {
-      return {
-        id: 'xd8uAmBx9C3vhzcE' + (Math.random() + 1000) * 10,
-        andOr: AndOrEnum.AND,
-        dynamicFilters: [],
-        brackets: [
-          {
-            id: 'xd8uAmBx9C3vhzcE' + (Math.random() + 1000) * 10,
-            andOr: AndOrEnum.AND,
-            dynamicFilters: createDefaultDynamicFilters(),
-            brackets: []
-          },
-          {
-            id: 'xd8uAmBx9C3vhzcE' + (Math.random() + 1000) * 10,
-            andOr: AndOrEnum.AND,
-            dynamicFilters: createDefaultDynamicFilters(),
-            brackets: []
-          },
-          {
-            id: 'xd8uAmBx9C3vhzcE' + (Math.random() + 1000) * 10,
-            andOr: AndOrEnum.AND,
-            dynamicFilters: createDefaultDynamicFilters(),
-            brackets: []
-          }
-        ]
-      };
-    }
-
+    return {
+      id: 'bracketId' + (Math.random() + 1000) * 10,
+      parentIds: [...parentIds],
+      andOr: AndOrEnum.AND,
+      dynamicFilters: createDefaultDynamicFilters(),
+      brackets: []
+    };
 
   }
 
   addBracket(): any {
-    this.value.brackets.push(this.create());
+    this.value.brackets.push(this.create([]));
   }
 }

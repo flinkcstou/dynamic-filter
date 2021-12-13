@@ -1,4 +1,12 @@
 <div class="container">
+
+  <ng-container *ngIf="bracket.dynamicFilters.length">
+    <div class="dynamic-filter-container">
+      <app-ui-chip [text]="bracket.dynamicFilters[0].value"></app-ui-chip>
+      <app-ui-and-or *ngIf="!isLast" (emitBracket)="joinBracket($event, bracket)"></app-ui-and-or>
+    </div>
+  </ng-container>
+
   <ng-container *ngIf="bracket.brackets.length">
     <div class="filter-bracket">
       <app-ui-bracket *ngFor="let b of bracket.brackets; let last = last"
@@ -10,14 +18,6 @@
       </div>
     </div>
     <app-ui-and-or *ngIf="!isLast"></app-ui-and-or>
-  </ng-container>
-
-
-  <ng-container *ngIf="bracket.dynamicFilters.length">
-    <div class="dynamic-filter-container">
-      <app-ui-chip [text]="bracket.dynamicFilters[0].value"></app-ui-chip>
-      <app-ui-and-or *ngIf="!isLast" (emitBracket)="joinBracket($event, bracket)"></app-ui-and-or>
-    </div>
   </ng-container>
 
 </div>
