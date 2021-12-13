@@ -1,0 +1,13 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+
+  .button-add {
+    padding-left: 0.5rem;
+    cursor: pointer;
+
+  }
+}

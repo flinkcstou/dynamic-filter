@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="img" (click)="changeBracket()">
+    <img [src]="isBracket? 'assets/max-arrow.svg': 'assets/min-arrow.svg'">
+  </div>
+  <div class="text" (click)="changeAndOr()">
+    {{andOr}}
+  </div>
+</div>

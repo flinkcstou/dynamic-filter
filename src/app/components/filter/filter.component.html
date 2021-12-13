@@ -1,0 +1,8 @@
+<div class="container" *ngIf="filter$ | async as  filter">
+  <ng-container *ngFor="let bracket of filter.brackets;let last=last">
+    <app-ui-bracket [bracket]="bracket" [isLast]="last"></app-ui-bracket>
+  </ng-container>
+  <div class="button-add" (click)="createBracket()">
+    Добавить
+  </div>
+</div>

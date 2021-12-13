@@ -1,0 +1,27 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  padding-right: 0.5rem;
+
+  margin-left: 0.5rem;
+
+  cursor: pointer;
+  border: 1px solid #2f80ed;
+  border-radius: 1.5rem;
+
+
+  .img {
+    position: absolute;
+    top: -0.5rem;
+    right: 0;
+
+    img {
+      width: 9px;
+      height: 9px;
+    }
+  }
+}

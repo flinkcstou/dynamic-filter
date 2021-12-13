@@ -1,0 +1,10 @@
+<div class="container">
+  <app-ui-bracket *ngFor="let bracket of brackets; let last = last"
+                  [bracket]="bracket"
+                  [isLast]="last"
+  ></app-ui-bracket>
+  <div class="img" (click)="closeEmit.emit()">
+    <img src="assets/red-close.png">
+  </div>
+</div>
+<app-ui-and-or *ngIf="!isLast"></app-ui-and-or>
