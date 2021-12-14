@@ -62,11 +62,11 @@ export function createDefaultBrackets(): Bracket[] {
   ];
 }
 
-export function createDefaultDynamicFilters(): FilterFieldBo[] {
+export function createDefaultDynamicFilters(value = 1): FilterFieldBo[] {
   return [
     {
       id: 'dynamicFilterId1',
-      value: 'input text value 1',
+      value: 'input text value 1' + value,
       type: FilterFieldTypeEnum.INPUT_TEXT,
       fieldId: 'fieldId1',
       intFrom: null,

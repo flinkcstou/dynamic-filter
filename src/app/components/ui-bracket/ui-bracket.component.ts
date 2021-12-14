@@ -20,6 +20,10 @@ export class UiBracketComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  identify(index, bracket: Bracket): string {
+    return bracket.id;
+  }
+
   removeBracket(bracket: Bracket): any {
     this.filterService.removeDynamicFilter(bracket);
   }
@@ -30,5 +34,9 @@ export class UiBracketComponent implements OnInit {
 
   removeDynamicFilter(bracket: Bracket): void {
     this.filterService.removeDynamicFilter(bracket);
+  }
+
+  unPackBracket(bracket: Bracket): void {
+    this.filterService.unPackBracket(bracket);
   }
 }

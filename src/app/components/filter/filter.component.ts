@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Filter } from 'src/app/components/models/Filter';
 import { FilterService } from 'src/app/components/services/filter.service';
 import { Observable } from 'rxjs';
-import { Bracket } from 'src/app/components/models/Bracket';
 
 @Component({
   selector: 'app-filter',

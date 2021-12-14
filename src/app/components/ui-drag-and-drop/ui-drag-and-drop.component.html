@@ -1,0 +1,22 @@
+<div class="categories" cdkDropListGroup>
+  <ng-container *ngFor="let bracket of brackets;let i=index; let last =last; trackBy: identify">
+    <div class="categories-item" cdkDropList cdkDropListOrientation="horizontal"
+         [cdkDropListData]="{item:bracket,index:i}" (cdkDropListDropped)="drop($event)">
+      <div class="inner" cdkDrag>
+        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+        <ng-container
+          *ngIf="headerTemplateRef"
+          [ngTemplateOutlet]="headerTemplateRef"
+          [ngTemplateOutletContext]="{bracket:bracket, last:last}">
+        </ng-container>
+      </div>
+      <div class="inner-hide">
+        <ng-container
+          *ngIf="headerTemplateRef"
+          [ngTemplateOutlet]="headerTemplateRef"
+          [ngTemplateOutletContext]="{bracket:bracket, last:last}">
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+</div>

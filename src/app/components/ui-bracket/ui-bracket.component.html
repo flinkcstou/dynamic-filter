@@ -12,11 +12,11 @@
 
   <ng-container *ngIf="bracket.brackets.length">
     <div class="filter-bracket">
-      <app-ui-bracket *ngFor="let b of bracket.brackets; let last = last"
+      <app-ui-bracket *ngFor="let b of bracket.brackets; let last = last; trackBy: identify"
                       [bracket]="b"
                       [isLast]="last"
       ></app-ui-bracket>
-      <div class="img" (click)="removeBracket(bracket)">
+      <div class="img" (click)="unPackBracket(bracket)">
         <img src="assets/red-close.png">
       </div>
     </div>

@@ -1,0 +1,15 @@
+<div #contenedor class="categories" cdkDropListGroup>
+  <ng-container *ngFor="let item of items;let i=index">
+    <div class="categories-item" cdkDropList cdkDropListOrientation="horizontal"
+         [cdkDropListData]="{item:item,index:i}" (cdkDropListDropped)="drop($event)">
+      <div class="inner" cdkDrag>
+        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+        {{item * item * item}}
+      </div>
+      <div class="inner-hide">
+        {{item * item * item}}
+      </div>
+    </div>
+  </ng-container>
+</div>
+{{items|json}}

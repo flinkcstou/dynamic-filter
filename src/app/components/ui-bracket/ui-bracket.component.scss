@@ -1,3 +1,7 @@
+:host {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
 
 .container {
   position: relative;
@@ -26,7 +30,7 @@
 
   cursor: pointer;
   border: 1px solid #2f80ed;
-  border-radius: 1.5rem;
+  border-radius: 40rem;
 
 
   .img {
