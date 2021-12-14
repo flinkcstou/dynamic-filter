@@ -4,6 +4,11 @@ import { FilterFieldBo } from 'src/app/components/models/FilterFieldBo';
 import { FilterFieldTypeEnum } from 'src/app/components/models/FilterFieldTypeEnum';
 import { Filter, FilterTypeEnum } from 'src/app/components/models/Filter';
 
+
+export function rndId(): string {
+  return Math.floor(Math.random() * 10000) + '';
+}
+
 export function createDefaultFilter(): Filter {
   return {
     id: 'filterId',
