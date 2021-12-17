@@ -1,12 +1,3 @@
-<!--<div class="container" *ngIf="filter$ | async as  filter">-->
-<!--  <ng-container *ngFor="let bracket of filter.brackets;let last=last">-->
-<!--    <app-ui-bracket [bracket]="bracket" [isLast]="last"></app-ui-bracket>-->
-<!--  </ng-container>-->
-<!--  <div class="button-add" (click)="createBracket()">-->
-<!--    Добавить-->
-<!--  </div>-->
-<!--</div>-->
-
 <div class="container" *ngIf="filter$ | async as  filter">
   <app-ui-drag-and-drop [brackets]="filter.brackets">
     <ng-template #header let-bracket="bracket" let-last="last">

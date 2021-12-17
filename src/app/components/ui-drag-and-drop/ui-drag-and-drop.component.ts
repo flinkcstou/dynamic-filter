@@ -18,11 +18,14 @@ export class UiDragAndDropComponent {
     return bracket.id;
   }
 
-  drop(event: CdkDragDrop<any>): void {
-    this.brackets[event.previousContainer.data.index] = event.container.data.item;
-    this.brackets[event.container.data.index] = event.previousContainer.data.item;
-  }
+  // drop(event: CdkDragDrop<any>): void {
+  //   this.brackets[event.previousContainer.data.index] = event.container.data.item;
+  //   this.brackets[event.container.data.index] = event.previousContainer.data.item;
+  // }
 
+  drop(event: CdkDragDrop<any>): void {
+    moveItemInArray(this.brackets, event.previousContainer.data.index, event.container.data.index);
+  }
 
 
 }
