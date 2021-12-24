@@ -79,7 +79,7 @@ export class FilterService {
       const bCurrent = {...bracket.brackets[bIndex], parentIds: [...bNew.parentIds, bNew.id]};
       const bNext = {...bracket.brackets[bNextIndex], parentIds: [...bNew.parentIds, bNew.id]};
 
-      if (!bCurrent.brackets.length && !bNext.brackets.length && bracket.brackets.every(b => b.id === bCurrent.id || b.id === bNext.id)) {
+      if (!bCurrent.brackets.length && !bNext.brackets.length && level !== 0 && bracket.brackets.every(b => b.id === bCurrent.id || b.id === bNext.id)) {
         return;
       }
       if (!bNext.brackets.length) {
