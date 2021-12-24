@@ -109,7 +109,7 @@ export class FilterService {
     if (!parentId) {
       const bIndex = bracket.brackets.findIndex(b => b.id === id);
       const bCurrent = bracket.brackets[bIndex];
-      bCurrent.brackets.forEach(b => b.parentIds = [...bCurrent.parentIds]);
+      this.removeUnPackBracketId(bCurrent, id);
       const bInnerCurrents = [...bCurrent.brackets];
       bracket.brackets.splice(bIndex, 1, ...bInnerCurrents);
       return;
@@ -118,6 +118,14 @@ export class FilterService {
     level++;
     const bracketNext = bracket.brackets.find(b => b.id === parentId);
     this.unPackInnerBracket(id, parentIds, level, bracketNext);
+  }
+
+  private removeUnPackBracketId(bracket: Bracket, id): void {
+    bracket.brackets.forEach(b => b.parentIds = b.parentIds.filter(p => p !== id));
+    if (!bracket.brackets.length) {
+      return;
+    }
+    bracket.brackets.forEach((b => this.removeUnPackBracketId(b, id)));
   }
 
   create(parentIds: string[]): Bracket {
